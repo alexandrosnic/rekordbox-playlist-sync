@@ -1,0 +1,2 @@
+# Required only if you enable UI automation flags
+pyautogui>=0.9.54

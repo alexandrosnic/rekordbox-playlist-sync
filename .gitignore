@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Local personal paths/config
+config/playlist_path.json
+
+.venv/
+venv/

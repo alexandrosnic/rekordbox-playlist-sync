@@ -1,0 +1,8 @@
+{
+  "sync_paths": {
+    "youtube_playlist_m3u8_dir": "/path/to/your/playlists",
+    "rekordbox_custom_playlists_m3u8_dir": "/path/to/your/playlists/rekordboxPlaylists",
+    "xml_library_path": "/path/to/your/rekordbox/latest.xml"
+  }
+}
+
