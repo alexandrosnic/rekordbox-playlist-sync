@@ -26,6 +26,25 @@ def read_json(parent_dir, file_name):
 
 
 def get_sync_paths() -> dict:
-    """Return neutral path configuration for Rekordbox sync operations."""
+    """Return path configuration for Rekordbox sync operations.
+
+    Preferred key for source playlists:
+    - sync_paths.source_playlist_m3u8_dir
+
+    Backward-compatible legacy key:
+    - sync_paths.youtube_playlist_m3u8_dir
+    """
     config = read_json("config", "playlist_path.json")
-    return config["sync_paths"]
+    sync_paths = config["sync_paths"]
+
+    if "source_playlist_m3u8_dir" not in sync_paths:
+        legacy_key = "youtube_playlist_m3u8_dir"
+        if legacy_key in sync_paths:
+            sync_paths["source_playlist_m3u8_dir"] = sync_paths[legacy_key]
+        else:
+            raise KeyError(
+                "Missing required config key in config/playlist_path.json: "
+                "sync_paths.source_playlist_m3u8_dir"
+            )
+
+    return sync_paths

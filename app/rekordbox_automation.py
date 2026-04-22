@@ -207,7 +207,7 @@ def import_m3u8_playlists_to_xml():
     """
     sync_paths = get_sync_paths()
     rekordbox_xml = sync_paths["xml_library_path"]
-    playlist_m3u8_folder = sync_paths["youtube_playlist_m3u8_dir"]
+    playlist_m3u8_folder = sync_paths["source_playlist_m3u8_dir"]
     
     tree = ET.parse(rekordbox_xml)
     root = tree.getroot()
